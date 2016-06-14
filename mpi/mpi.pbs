@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# File ciminob6.pbs
+# runs ciminob6 on bigjack using gcc openmpi install
+# ken.gamradt@sdstate.edu ~April 2014
+
+#PBS -l nodes=4:ppn=6
+#PBS -l walltime=00:10:00
+#PBS -j oe
+##PBS -w x=NACCESSPOLICY:SINGLEJOB
+
+. ${MODULESHOME}/init/sh
+module load openmpi
+
+cd $PBS_O_WORKDIR
+
+cat $PBS_NODEFILE | uniq
+
+mpirun -np $PBS_NP ./ciminob6 0.0 1.0 7200000000

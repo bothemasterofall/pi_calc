@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# File ciminob7.pbs
+# runs ciminob7 on bigjack using gcc openmpi install
+# ken.gamradt@sdstate.edu ~April 2014
+
+#PBS -l nodes=4:ppn=4
+#PBS -l walltime=00:10:00
+#PBS -j oe
+##PBS -w x=NACCESSPOLICY:SINGLEJOB
+
+. ${MODULESHOME}/init/sh
+module load openmpi
+
+cd $PBS_O_WORKDIR
+
+cat $PBS_NODEFILE | uniq
+
+#  number of OpenMP threads
+export OMP_NUM_THREADS=8
+
+mpirun -np $PBS_NP ./ciminob7 0.0 1.0 7200000000
