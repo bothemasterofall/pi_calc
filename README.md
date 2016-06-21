@@ -1,6 +1,10 @@
-This repo contains 3 sub-programs I wrote during college to calculate pi by
-taking the sum of the following function from 0 to 1.
+# Pi Calculator
 
-f(x) = 1/(1+x^2)
+This repo contains 3 sub-programs I wrote during college to learn about
+parallel computing. The 3 programs calculate pi by taking the sum of the
+following function on the interval of 0 to 1 inclusive.
 
-I use omp, mpi, and a combination of both in the 3 sub dirs.
+`f(x) = 1/(1+x^2)`
+
+The 3 sub dirs perform this operation using OMP, MPI, and a combination
+of both.
